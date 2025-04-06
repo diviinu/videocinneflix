@@ -4,19 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinneflix - Seu streaming favorito</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #000;
+        }
+        header nav {
+            padding: 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e50914;
+        }
+        .hero {
+            position: relative;
+            padding: 50px 20px;
+            text-align: center;
+            background-image: url('fundo.png'); /* Imagem de fundo adicionada */
+            background-size: cover; /* Cobre toda a seção */
+            background-position: center; /* Centraliza a imagem */
+            min-height: 200px; /* Altura mínima para o banner ser visível */
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Camada escura para legibilidade do texto */
+            z-index: 1;
+        }
+        .hero h2, .hero p {
+            position: relative;
+            z-index: 2; /* Garante que o texto fique acima da camada escura */
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+        }
+        .plans {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .plans h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #e50914;
+        }
+        .plans-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .plan-card {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            position: relative;
+        }
+        .plan-card.featured {
+            border: 2px solid #e50914;
+        }
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e50914;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        .plan-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .price .amount {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .price .period {
+            display: block;
+            font-size: 1rem;
+            color: #ccc;
+        }
+        .alternative {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin: 10px 0;
+        }
+        .subscribe-btn {
+            display: inline-block;
+            background: #00cc00;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 15px 0;
+            transition: background 0.3s ease;
+        }
+        .subscribe-btn:hover {
+            background: #f40612;
+        }
+        .features {
+            list-style: none;
+            text-align: left;
+            font-size: 1rem;
+            color: #ddd;
+        }
+        .features li {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
     <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1098364668702521');
-    fbq('track', 'PageView');
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1098364668702521');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1098364668702521&ev=PageView&noscript=1"
@@ -81,7 +209,6 @@
                     <ul class="features">
                         <li>✓ 4K + HDR disponível</li>
                         <li>✓ Assista em 3 telas</li>
-                        
                         <li>✓ Download disponível</li>
                         <li>✓ Melhor custo-benefício</li>
                     </ul>
