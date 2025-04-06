@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINNEFLIX</title>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1098364668702521');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1098364668702521&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #e5091420 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header {
+      background: linear-gradient(to bottom, rgba(229, 9, 20, 0.3), transparent);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #e50914;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin: 2rem 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex-grow: 1;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border: 4px solid #e50914;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(229, 9, 20, 0.3);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      background: black;
+      pointer-events: none;
+    }
+
+    .custom-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    .mute-button {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mute-button:hover {
+      background: rgba(229, 9, 20, 0.8);
+      border-color: #e50914;
+      transform: scale(1.05);
+    }
+
+    .mute-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    #cta-button {
+      background: #e50914;
+      color: white;
+      border: none;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.3rem;
+      border-radius: 50px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.5s ease;
+      margin-top: 2rem;
+      transform: translateY(20px);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 2rem auto;
+    }
+
+    #cta-button.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #cta-button:hover {
+      background: #f40612;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    }
+
+    .footer {
+      background: linear-gradient(to top, rgba(229, 9, 20, 0.3), transparent);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .main-content {
+        padding: 1rem;
+      }
+
+      #cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">CINNEFLIX</h1>
+    <h2 class="subtitle">Assista ao vídeo completo para desbloquear sua oferta exclusiva!</h2>
+  </header>
+
+  <main class="main-content">
+    <div class="video-container">
+      <video id="promo-video" autoplay muted playsinline>
+        <source src="Cinneflivideo1.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+
+      <div class="custom-controls">
+        <button class="mute-button" id="mute-toggle">
+          <svg class="volume-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path class="volume-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <span>Ativar Som</span>
+        </button>
+      </div>
+    </div>
+
+    <a href="planos/planos.html" id="cta-button" >
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      </svg>
+      Quero minha oferta especial!
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 CINNEFLIX. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const video = document.getElementById("promo-video");
+    const button = document.getElementById("cta-button");
+    const muteToggle = document.getElementById("mute-toggle");
+    const volumeIcon = muteToggle.querySelector('.volume-icon');
+
+    let lastTime = 0;
+    let travar = false;
+
+    // Atualiza o ícone de volume
+    function updateVolumeIcon(isMuted) {
+      if (isMuted) {
+        volumeIcon.innerHTML = `
+          <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        `;
+      } else {
+        volumeIcon.innerHTML = `
+          <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        `;
+      }
+    }
+
+    // Ativa proteção após o vídeo iniciar
+    video.addEventListener("play", () => {
+      travar = true;
+      video.volume = 1;
+    });
+
+    // Impede pausar
+    video.addEventListener("pause", () => {
+      if (travar) video.play();
+    });
+
+    // Impede avanço ou retrocesso
+    video.addEventListener("timeupdate", () => {
+      if (travar && Math.abs(video.currentTime - lastTime) > 0.5) {
+        video.currentTime = lastTime;
+      } else {
+        lastTime = video.currentTime;
+      }
+    });
+
+    video.addEventListener("seeking", () => {
+      if (travar) video.currentTime = lastTime;
+    });
+
+    // Botão de mute customizado
+    muteToggle.addEventListener("click", () => {
+      video.muted = !video.muted;
+      updateVolumeIcon(video.muted);
+      muteToggle.querySelector('span').textContent = video.muted ? "Ativar Som" : "Mutar";
+    });
+
+    // Mostra botão final
+    video.addEventListener("ended", () => {
+      button.classList.add("visible");
+    });
+
+    // Configura o botão CTA
+    button.addEventListener("click", () => {
+      window.location.href = 'planos.html';
+    });
+
+    // Bloqueia clique direito
+    video.addEventListener("contextmenu", e => e.preventDefault());
+
+    // Bloqueia atalhos de teclado
+    window.addEventListener("keydown", e => {
+      const bloqueados = [" ", "ArrowRight", "ArrowLeft", "m", "k"];
+      if (bloqueados.includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+
+    // Inicializa o ícone de volume
+    updateVolumeIcon(true);
+  </script>
+</body>
+</html>
